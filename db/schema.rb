@@ -47,12 +47,12 @@ ActiveRecord::Schema.define(version: 20150324234448) do
   create_table "consultoras", force: true do |t|
     t.string   "email",              default: "", null: false
     t.string   "encrypted_password", default: "", null: false
-    t.string  "sign_in_count",      default: 0
+    t.integer  "sign_in_count",      default: 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string  "failed_attempts",    default: 0
+    t.integer  "failed_attempts",    default: 0
     t.string   "unlock_token"
     t.datetime "locked_at"
     t.datetime "created_at"
@@ -69,9 +69,9 @@ ActiveRecord::Schema.define(version: 20150324234448) do
     t.string   "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string  "access"
-    t.string  "multiproyecto"
-    t.string  "multiempresa"
+    t.integer  "access"
+    t.integer  "multiproyecto"
+    t.integer  "multiempresa"
     t.string   "horaEntrada"
     t.string   "horaSalida"
   end
@@ -142,14 +142,14 @@ ActiveRecord::Schema.define(version: 20150324234448) do
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string  "invitado"
+    t.integer  "invitado"
     t.string   "email_consultor"
     t.string   "email_consultora"
   end
