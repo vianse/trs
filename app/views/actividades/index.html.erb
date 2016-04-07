@@ -1,0 +1,35 @@
+
+  <%= render 'nav_bar' %>
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-xs-4" >
+                <%= render 'rigth_profile' %>
+            </div>
+            <div class="col-xs-7 col-sm-offset-0 "> 
+              <% if @conteo != 0 %> 
+              <%= render "tabla_actividades" %>
+              <% else %> 
+              <%= render "abrir_periodo" %> 
+             <% end %>
+            
+            </div>  
+              <div class="col-xs-1">
+            </div>           
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <footer>
+                   
+                </footer>
+            </div>
+        </div>
+    </div>
+
+
+<%= render 'pagina/content_head' %><br>
+<%= render 'style_consultores' %>
+<%= render 'pagina/content_footer' %>
+
+
+

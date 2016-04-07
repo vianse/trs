@@ -1,0 +1,29 @@
+<hr>
+<%= form_tag(controller: "consultores", action:  "register_invitados", method: "post") %>
+
+  <div class="field">
+    <%= label_tag 'Correo electronico del invitado' %><br />
+    <%= text_field_tag :email, @email, :class => "form-control tamano"  %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :password %>
+    <% if @validatable %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= password_field_tag :password, nil, :class => "form-control tamano" %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :password_confirmation %><br />
+    <%= password_field_tag :password_confirmation, nil, :class => "form-control tamano" %>
+  </div>
+
+  <%= hidden_field_tag :invitado, true, :class => "form-control tamano" %>
+ 
+  <%= hidden_field_tag :email_consultora, current_consultora.email, :class => "form-control tamano" %><br>
+  <div class="actions">
+    <%= submit_tag "Registrar" , :class => "btn btn-success btn-cons"%>
+    <%= link_to 'Regresar', consultores_path,  :class => "btn btn-info btn-cons color" %>
+  </div>
+

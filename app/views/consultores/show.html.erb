@@ -1,0 +1,33 @@
+<%= render 'pagina/style' %>
+<%= render 'pagina/menuE_left' %>
+<%= render 'pagina/content_head' %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @consultore.nombre %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @consultore.email %>
+</p>
+
+<p>
+  <strong>Cliente:</strong>
+  <%= @consultore.cliente %>
+</p>
+
+<p>
+  <strong>Proyecto:</strong>
+  <%= @consultore.proyecto %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @consultore.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_consultore_path(@consultore) %> |
+<%= link_to 'Back', consultores_path %>
+<%= render 'pagina/content_footer' %>

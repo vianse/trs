@@ -1,0 +1,29 @@
+<hr>
+
+  <%= form_for(@invitado) do |f| %>
+  <% if @invitado.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@invitado.errors.count, "error") %> prohibited this invitado from being saved:</h2>
+      <ul>
+      <% @invitado.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.hidden_field :id_consultora, :value => current_consultora.id , :class => "form-control tamano"%>
+  </div>
+  <div class="field">
+    <%= f.label "Correo electronico del invitado" %><br>
+    <%= f.text_field :emailInvitado, :value => @email , :class => "form-control tamano", :readonly=> true%>
+  </div>
+  <div class="field">
+    <%= f.label "Selecciona un Consultor" %><br>
+    <%= f.select(:emailConsultor, @consultores , {include_blank: "Selecciona un Consultor"}, {:class => "form-control tamano",:required => true})%>
+  </div>
+  <div class="actions">
+    <%= f.submit "Dar acceso" %>
+  </div>
+<% end %>
+

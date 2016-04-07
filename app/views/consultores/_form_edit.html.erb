@@ -1,0 +1,37 @@
+<%= render 'pagina/style' %>
+<%= render 'pagina/menuE_left' %>
+<%= render 'pagina/content_head' %>
+<%= form_for(@consultore) do |f| %>
+  <% if @consultore.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@consultore.errors.count, "error") %> prohibited this consultore from being saved:</h2>
+
+      <ul>
+      <% @consultore.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <h1 class="tamano">Datos del Consultor</h1>
+  <div class="actions">
+    <%= f.submit 'Guardar', :class => "btn btn-success btn-cons"%>
+    <%= link_to 'Regresar', consultores_path,  :class => "btn btn-info btn-cons color" %>
+  </div>
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre ,:class => "form-control tamano" %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email ,:class => "form-control tamano" %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :user_id, :value => current_consultora.id %>
+  </div>
+  
+
+<% end %>
+
+<%= render 'tabla_asignaciones' %>
+<%= render 'pagina/content_footer' %>

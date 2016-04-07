@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id consultora:</strong>
+  <%= @asignacione.id_consultora %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @asignacione.email %>
+</p>
+
+<p>
+  <strong>Cliente:</strong>
+  <%= @asignacione.cliente %>
+</p>
+
+<p>
+  <strong>Proyecto:</strong>
+  <%= @asignacione.proyecto %>
+</p>
+
+<p>
+  <strong>Horainicio:</strong>
+  <%= @asignacione.horaInicio %>
+</p>
+
+<p>
+  <strong>Horafin:</strong>
+  <%= @asignacione.horaFin %>
+</p>
+
+<%= link_to 'Edit', edit_asignacione_path(@asignacione) %> |
+<%= link_to 'Back', asignaciones_path %>

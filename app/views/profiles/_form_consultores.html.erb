@@ -1,0 +1,51 @@
+<%= form_for(@profile) do |f| %>
+  <% if @profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+      <ul>
+      <% @profile.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <h1> Mi Perfil</h1>
+
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre , :class => "form-control tamano"%>
+  </div>
+  <div class="field">
+    <%= f.label :apellidos %><br>
+    <%= f.text_field :apellidos %>
+  </div>
+    <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email , :class => "form-control tamano" %>
+  </div>
+    <div class="field">
+    <%= f.label 'Telefono Movil' %><br>
+    <%= f.text_field :telMovil , :class => "form-control tamano" %>
+  </div>
+  <div class="field">
+    <%= f.label :puesto %><br>
+    <%= f.text_field :puesto , :class => "form-control tamano" %>
+  </div>
+  <div class="field">
+    <%= f.label :foto %><br>
+    <%= f.text_field :foto , :class => "form-control tamano" %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br>
+    <%= f.text_field :type, :value => 2 %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id, :value => current_user.id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

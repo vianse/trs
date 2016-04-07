@@ -1,0 +1,41 @@
+<!-- <div class="container">
+    <div class="row">
+        <div class="[ col-xs-12 col-sm-offset-1 col-sm-5 ]">
+            <div class="[ panel panel-default ] panel-google-plus">
+                <div class="panel-heading">
+                    <img class="botton" src=<%= @consultora.logo %> alt="Mouse0270" /><br>
+                    <h3><%= @consultora.nombre %></h3>
+                    <h5>
+                        <i class="fa fa-map-marker"></i>
+                        <span>México, D.F.</span> - <span>Jun 27, 2014</span> </h5>
+                </div>
+                <div class="panel-body">
+                    <strong>Cliente: <%= @asignacion.cliente %></strong><br>
+                    <strong>Proyecto: <%= @asignacion.proyecto %></strong><br>
+                    <strong>Consultor: <%= @email.nombre %></strong><br>
+                    <strong> Periodo: 01 al <%= l(Date.current.end_of_month, :format => :ultimodia) %></strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<div class="panel panel-default profile">
+    <div class="panel-heading panel-profile">
+        <img class="botton" src=<%= @consultora.logo %> alt="Mouse0270" /><br>
+        <h3><%= @consultora.nombre %></h3>
+            <h5>
+            <i class="fa fa-map-marker"></i>
+            <span>México, D.F.</span> - <span>Jun 27, 2014</span> </h5>
+    </div>
+    <div class="panel-body">
+        <strong>Cliente: <%= @asignacion.cliente %></strong><br>
+        <strong>Proyecto: <%= @asignacion.proyecto %></strong><br>
+        <strong>Consultor: <%= @email.nombre %></strong><br>
+        <strong> Periodo: 01 al <%= l(Date.current.end_of_month, :format => :ultimodia) %></strong>
+    </div>
+</div>
+<div class="panel panel-default profile">
+  <div class="panel-body">
+   <%= render "proyectos" %>
+  </div>
+</div>

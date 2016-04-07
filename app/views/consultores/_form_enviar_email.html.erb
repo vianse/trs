@@ -1,0 +1,6 @@
+<br><p>El usuario no existe, deseas enviarle una invitación para que se registre</p>
+ <%= form_tag controller: "consultores", action:  "enviar_email", method: "post" do %>
+ <%= text_field_tag :correo, :nil, :value => @email, :class => "form-control tamano", :placeholder => "example@vianse.mx", :required => true, :readonly => true %>
+  
+ <%= submit_tag "Enviar email" , :class => "btn btn-info btn-cons" %>
+ <% end %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cliente: MyString
+  lider: MyString
+  gerente: MyString
+  user_id: MyString
+
+two:
+  cliente: MyString
+  lider: MyString
+  gerente: MyString
+  user_id: MyString

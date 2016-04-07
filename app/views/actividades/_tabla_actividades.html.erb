@@ -1,0 +1,81 @@
+<strong class= "btn pull-right">Total de días: <span class="spa"><%= @dias %></span></strong>
+<hr>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>H-E</th>
+      <th>H-S</th>
+      <th>Actividad</th>
+      <th>Días</th>
+      <th>H-T</th>
+      <th>Día Semana</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @actividades.each do |a| %>
+      <tr>
+          <% if a.diaLetra[0]  == "d" or  a.diaLetra[0]  == "s" %>
+          <td class = "red"><%= a.diaActual %></td> 
+          <% else %>
+          <td><%= a.diaActual %></td> 
+          <% end %>
+          <% if a.diaLetra[0]  == "d" or  a.diaLetra[0]  == "s" %>
+          <td class = "red"></td> 
+          <% else %>
+          <% if a.dias  == "0" or a.horasTrabajadas  == "0"  %>
+                <td class = "bblue"><%= best_in_place a, :horaEntrada, :as => :input, :nil => "El campo no puede estar vacio: Ponga '00:00'" %></td>
+            <% else %>
+                <td class = "blue"><%= best_in_place a, :horaEntrada, :as => :input, :nil => "El campo no puede estar vacio: Ponga '00:00'" %></td> 
+            <% end %>
+          <% end %>
+          <% if a.diaLetra[0]  == "d" or  a.diaLetra[0]  == "s" %>
+          <td class = "red"></td> 
+          <% else %>
+          <% if a.dias  == "0" or a.horasTrabajadas  == "0"  %>
+                <td class = "bblue"><%= best_in_place a, :horaSalida, :as => :input, :nil => "El campo no puede estar vacio: Ponga '00:00'" %></td>
+            <% else %>
+                <td class = "blue"><%= best_in_place a, :horaSalida, :as => :input, :nil => "El campo no puede estar vacio: Ponga '00:00'" %></td>
+            <% end %>
+          <% end %>
+          <% if a.diaLetra[0]  == "d" or  a.diaLetra[0]  == "s" %>
+          <td class = "red">Día sin actividad</td> 
+          <% else %>
+          <% if a.dias  == "0" or a.horasTrabajadas  == "0" %>
+                <td class = "bblue"><%= best_in_place a, :actividad, tabindex: "1", :as => :input, :nil => "Este campo no puede estar vacio, pon un 0" %></td>
+            <% else %>
+                <td class = "blue"><%= best_in_place a, :actividad, tabindex: "1", :as => :input, :nil => "Este campo no puede estar vacio, pon un 0" %></td>
+            <% end %>
+          <% end %>
+          
+          <% if a.diaLetra[0]  == "d" or  a.diaLetra[0]  == "s" %>
+          <td class = "red"></td> 
+          <% else %>
+             <% if a.dias  == "0" or a.horasTrabajadas  == "0"  %>
+                <td class = "bblue"><%= best_in_place a, :dias, tabindex: "2", :as => :input, :nil => "Este campo no puede estar vacio, pon un 0" %></td>
+            <% else %>
+                <td class = "blue"><%= best_in_place a, :dias, tabindex: "2", :as => :input, :nil => "Este campo no puede estar vacio, pon un 0" %></td>
+            <% end %>
+          <% end %>
+          <% if a.diaLetra[0]  == "d" or  a.diaLetra[0]  == "s" %>
+          <td class = "red"></td> 
+          <% else %>
+          <% if a.dias  == "0" or a.horasTrabajadas  == "0"  %>
+                <td class = "bblue"><%= best_in_place a, :horasTrabajadas, :as => :input, :nil => "El campo no puede estar vacio, ponga '0'" %></td>
+            <% else %>
+                <td class = "blue"><%= best_in_place a, :horasTrabajadas, :as => :input, :nil => "El campo no puede estar vacio, ponga '0'" %></td> 
+            <% end %>
+          
+          <% end %>
+          <% if a.diaLetra[0]  == "d" or  a.diaLetra[0]  == "s" %>
+          <td class = "red"><%= a.diaLetra[0].capitalize %></td> 
+          <% else %>
+          <td><%= a.diaLetra[0].capitalize %></td> 
+          <% end %>
+     
+      </tr>
+<% end %>
+  </tbody>
+</table>
+

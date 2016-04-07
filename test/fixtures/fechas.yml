@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha: MyString
+  mes: MyString
+  dia: MyString
+  diaL: MyString
+  mesL: MyString
+  año: MyString
+
+two:
+  fecha: MyString
+  mes: MyString
+  dia: MyString
+  diaL: MyString
+  mesL: MyString
+  año: MyString

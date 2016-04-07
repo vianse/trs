@@ -1,0 +1,38 @@
+<%= render 'pagina/style' %>
+<h1>Mi perfil</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <% @profiles.each do |profile| %>
+  
+      <%= link_to 'Editar', edit_profile_path(profile), :class => "btn btn-warning btn-cons color" %></div>
+  </div>
+  <br>
+  <div>
+    <img src=<%= profile.logo %>>
+  </div>
+  <div>
+    <strong>Nombre: </strong><span><%= profile.nombre %></span>
+  </div>
+  <div>
+    <strong>Razon Social: </strong><span><%= profile.razonSocial %></span>
+  </div>
+  <div>
+    <strong>Dirección: </strong><span><%= profile.direccion %></span>
+  </div>
+  <div>
+    <strong>Contacto: </strong><span><%= profile.contacto %></span>
+  </div>
+  <div>
+    <strong>Email: </strong><span><%= profile.email %></span>
+  </div>
+  <div>
+    <strong>Telefono Oficina: </strong><span><%= profile.telOficina %></span>
+  </div>
+   <div>
+    <strong>Telefono Movil: </strong><span><%= profile.telMovil %></span>
+  </div>
+</div>
+
+<% end %>

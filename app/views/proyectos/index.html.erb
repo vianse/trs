@@ -1,0 +1,39 @@
+<%= render 'pagina/style' %>
+<%= render 'pagina/menuE_left' %>
+<%= render 'pagina/content_head' %>
+<h1>Mis Proyectos</h1>
+<h5>Número de Proyectos <strong> <%= @proyectos.count %></strong></h5>
+<%= link_to 'Nuevo Proyecto', new_proyecto_path , :class => "btn btn-warning btn-cons color" %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Nombre del Cliente</th>
+      <th>Nombre del Proyecto</th>
+      <th>Lider de Proyecto</th>
+      <th>Gerente de Proyecto</th>
+
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @proyectos.each do |proyecto| %>
+      <tr>
+        <td><%= proyecto.cliente %></td>
+        <td><%= proyecto.nombreProyecto %></td>
+        <td><%= proyecto.lider %></td>
+        <td><%= proyecto.gerente %></td>
+ 
+        <td><%= link_to 'Editar', edit_proyecto_path(proyecto) %></td>
+        <td><%= link_to 'Eliminar', proyecto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<%= render 'pagina/content_footer' %>

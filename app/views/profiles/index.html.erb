@@ -1,0 +1,13 @@
+<%= render 'pagina/style' %>
+<%= render 'pagina/menuE_left' %>
+<%= render 'pagina/content_head' %>
+
+<% if consultora_signed_in? %>
+<%= render 'display_consultora' %>
+<% else %>
+<%= render 'display_consultores' %>
+<% end %>
+
+
+<%= link_to 'New Profile', new_profile_path %>
+<%= render 'pagina/content_footer' %>

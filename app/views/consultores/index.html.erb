@@ -1,0 +1,42 @@
+<%= render 'pagina/style' %>
+<%= render 'pagina/menuE_left' %>
+<%= render 'pagina/content_head' %>
+
+<h1>Mis Consultores</h1>
+<h5>Número de Consultores <strong> <%= @consultores.count %></strong></h5>
+<%= link_to 'Nuevo Consultor', nuevo_consultor_path,:class => "btn btn-warning btn-cons color" %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Nombre del consultor</th>
+      <th>Email</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @consultores.each do |consultore| %>
+      <tr>
+        <td><%= consultore.nombre %><span class="badge"><%= @asinaciones %></span></td>
+        <td><%= consultore.email %></td>
+        <td><%= link_to 'Editar', editar_consultor_path(consultore) %></td>
+        <% if consultore.access == true %>
+        <td><%= image_tag("http://xikin.googlecode.com/svn-history/r334/trunk/Desarrollo/TT/bin/assets/palomaGrande.png" , height: '32', width: '32') %> </td>
+        <% else %>
+        <td><%= link_to "Gestionar acceso", register_path(consultore) %></td>
+
+        <% end %>
+        <td><%= link_to 'Asignaciones', asignar_path(consultore) %></td>
+        <td><%= link_to 'Dar de Baja', consultore, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+
+<%= render 'pagina/content_footer' %>

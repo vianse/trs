@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id consultora:</strong>
+  <%= @invitado.id_consultora %>
+</p>
+
+<p>
+  <strong>Emailinvitado:</strong>
+  <%= @invitado.emailInvitado %>
+</p>
+
+<p>
+  <strong>Emailconsultor:</strong>
+  <%= @invitado.emailConsultor %>
+</p>
+
+<%= link_to 'Edit', edit_invitado_path(@invitado) %> |
+<%= link_to 'Back', invitados_path %>

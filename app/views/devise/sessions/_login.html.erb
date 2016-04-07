@@ -1,0 +1,60 @@
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div id="login-overlay" class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+
+              <h4 class="modal-title" id="myModalLabel">Login to Reporte de Actividades</h4>
+          </div>
+          <div class="modal-body">
+              <div class="row">
+                  <div class="col-xs-6">
+                      <div class="well">
+                          <form id="loginForm" method="POST" action="/login/" novalidate="novalidate">
+                              <div class="form-group">
+                                  <label for="username" class="control-label">Email</label>
+                                  <%= f.email_field :email, autofocus: true, :required => true ,:class => "form-control",:placeholder => "example@vianse.mx" %>
+                                  <span class="help-block"></span>
+                              </div>
+                              <div class="form-group">
+                                  <label for="password" class="control-label">Password</label>
+                                  <%= f.password_field :password, autocomplete: "off", :required => true, :class => "form-control" %>
+                                  <span class="help-block"></span>
+                              </div>
+                              <div id="loginErrorMsg" class="alert alert-error hide">Usuario o password incorrectos</div>
+                              <div class="checkbox">
+                            <% if devise_mapping.rememberable? -%>
+                              <div class="field">
+                                 <p class="help-block">(if this is a private computer)</p>
+                                <%= f.check_box :remember_me %>
+                                <%= f.label "Recordar cuenta" %>
+                              </div>
+                            <% end -%>
+                              </div>
+                               <%= f.submit "Login", :class=> "btn btn-success btn-block" %>
+                               <%- if devise_mapping.recoverable? %>
+                               <a href="/users/password/new/" class="btn btn-default btn-block">Recuperar Contraseña</a>
+                               <% end %>
+                               <%- if devise_mapping.lockable? %>
+                                <a href="/consultoras/unlock/new" class="btn btn-default btn-block">Desbloquear</a>
+                               <% end %>
+                          </form>
+                      </div>
+                  </div>
+                  <div class="col-xs-6">
+                      <p class="lead">Register now for <span class="text-success">FREE</span></p>
+                      <ul class="list-unstyled" style="line-height: 2">
+                          <li><span class="fa fa-check text-success"></span> See all your orders</li>
+                          <li><span class="fa fa-check text-success"></span> Fast re-order</li>
+                          <li><span class="fa fa-check text-success"></span> Save your favorites</li>
+                          <li><span class="fa fa-check text-success"></span> Fast checkout</li>
+                          <li><span class="fa fa-check text-success"></span> Get a gift <small>(only new customers)</small></li>
+                          <li><a href="/read-more/"><u>Read more</u></a></li>
+                      </ul>
+                      <p><a href="/new-customer/" class="btn btn-info btn-block">Yes please, register now!</a></p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+<% end %>

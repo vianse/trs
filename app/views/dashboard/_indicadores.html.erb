@@ -1,0 +1,122 @@
+
+<style type="text/css">
+  /* CSS used here will be applied after bootstrap.css */
+.dashboard-block, .dashboard-block:hover, .dashboard-block:active, .dashboard-block:focus {
+  color: #ffffff;
+  text-decoration: none;
+ 
+  outline: none;
+}
+.dashboard-block {
+ position: relative;
+ display: block;
+ padding: 30px 20px;
+ background-color: #A7DBD8;
+ opacity:0.9;
+ overflow: hidden;
+ margin-bottom:5px;
+ border-radius: 5px;
+}
+.dashboard-block .rotate {
+ z-index: 8;
+ float: right;
+ height: 100%;
+}
+.dashboard-block .rotate i {
+ position: absolute;
+ left: 0;
+ left: auto;
+ right: 0;
+ bottom: 0;
+ display: block;
+ height: 65px;
+ font-size: 75px;
+ -webkit-transform: rotate(-40deg);
+ -moz-transform: rotate(-40deg);
+ -o-transform: rotate(-40deg);
+ -ms-transform: rotate(-40deg);
+ transform: rotate(-40deg);
+ text-shadow:1px 0 #ddd;
+}
+.dashboard-block i,.dashboard-block:hover i,.dashboard-block:active i,.dashboard-block:focus i {
+ color: #e2e2e2;
+}
+.dashboard-block .more {
+ position: absolute;
+ top: 10px;
+ right: 10px;
+ font-size: 16px;
+ color: rgba(0, 0, 0, 0.25) !important;
+ text-shadow: none;
+}
+.dashboard-block .details {
+ position: relative;
+ z-index: 10;
+ float: left;
+ margin-top: -10px;
+ text-align: left;
+}
+.dashboard-block .title {
+ display: block;
+ margin-bottom: 1em;
+ font-size: 13px;
+ text-transform: uppercase;
+}
+.dashboard-block .sub {
+ display: block;
+ font-size: 32px;
+}
+
+</style>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3 col-sm-6">
+      <a href="javascript:;" class="dashboard-block">
+        <div class="rotate">
+          <i class="fa fa-users"></i>
+        </div>
+        <div class="details">
+          <span class="title">Total de Consultores</span>
+          <span class="sub"><%= @con %></span>
+        </div><!--/details-->
+        <i class="fa fa-chevron-right fa-2x more"></i>
+      </a><!--/dashboard-block1-->
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <a href="javascript:;" class="dashboard-block">
+        <div class="rotate">
+          <i class="fa fa-users"></i>
+        </div>
+        <div class="details">
+          <span class="title">Número de Clientes</span>
+          <span class="sub"><%= @cli %></span>
+        </div><!--/details-->
+        <i class="fa fa-chevron-right fa-2x more"></i>
+      </a><!--/dashboard-block2-->
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <a href="javascript:;" class="dashboard-block">
+        <div class="rotate">
+          <i class="fa fa-tachometer"></i>
+        </div>
+        <div class="details">
+          <span class="title">Proyectos</span>
+          <span class="sub"><%= @pro %></span>
+        </div><!--/details-->
+        <i class="fa fa-chevron-right fa-2x more"></i>
+      </a><!--/dashboard-block3-->
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <a href="javascript:;" class="dashboard-block">
+        <div class="rotate">
+          <i class="fa fa-user"></i>
+        </div>
+        <div class="details">
+          <span class="title">Actividades Capturadas</span>
+          <span class="sub">83</span>
+        </div><!--/details-->
+        <i class="fa fa-chevron-right fa-2x more"></i>
+      </a><!--/dashboard-block4-->
+    </div>
+  </div><!--/row-->
+  <hr>

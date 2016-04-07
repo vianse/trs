@@ -1,0 +1,35 @@
+<%= render 'pagina/style' %>
+<%= render 'pagina/menuE_left' %>
+<%= render 'pagina/content_head' %>
+<h1>Asignaciones </h1>
+<%= form_tag :controller => 'consultores', :action => 'crear_asignaciones', :method => 'post' do %>
+
+  <p>
+    <div class="field">
+    <%= hidden_field_tag :id_consultora, nil, :value => current_consultora.id ,:class => 'form-control tamano' %>
+  </div>
+  <div class="field">
+    <%= label_tag "Email del consultor" %><br>
+    <%= text_field_tag :email, nil, :value => @consultore.email ,:class => 'form-control tamano' ,:readonly => true %>
+  </div>
+  <div class="field">
+     <%= label_tag "Clientes" %><br>
+    <%= select_tag :cliente, options_for_select(@clientes), prompt: "Selecciona un cliente", :class => "form-control tamano" %>
+  </div>
+  <div class="field">
+    <%= label_tag "Proyectos"%><br>
+    <%= select_tag :proyecto, options_for_select(@proyectos), prompt: "Selecciona un proyecto", :class => "form-control tamano" %>
+  </div>
+  <div class="field">
+    <%= label_tag :horaInicio %><br>
+    <%= datetime_field_tag :horaInicio, nil, :value => "09:00",:class => 'form-control tamano' %>
+  </div>
+  <div class="field">
+    <%= label_tag :horaFin %><br>
+    <%= text_field_tag :horaFin, nil, :value => "18:00",:class => 'form-control tamano' %>
+  </div>
+    <%= submit_tag "Guardar", :class => "btn btn-success btn-cons" %>
+    <%= link_to 'Regresar', consultores_path,  :class => "btn btn-info btn-cons color" %>
+  </p>
+<% end %>
+<%= render 'pagina/content_footer' %>

@@ -1,0 +1,37 @@
+<%= render 'pagina/style' %>
+<%= render 'pagina/menuE_left' %>
+<%= render 'pagina/content_head' %>
+<h1>Generando Login</h1><br>
+
+
+  <%= form_tag controller: "consultores", action:  "register_user", method: "post" do %>
+
+  <div class="field">
+    <%= label_tag 'Correo electronico empresarial' %><br />
+    <%= text_field_tag :email, @consultore.email, :class => "form-control tamano"  %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :password %>
+    <% if @validatable %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= password_field_tag :password, nil, :class => "form-control tamano" %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :password_confirmation %><br />
+    <%= password_field_tag :password_confirmation, nil, :class => "form-control tamano" %>
+  </div>
+ 
+  <div class="actions">
+    <%= submit_tag "Registrar" , :class => "btn btn-success btn-cons"%>
+    <%= link_to 'Regresar', consultores_path,  :class => "btn btn-info btn-cons color" %>
+  </div>
+
+<% end %>
+
+
+
+
+<%= render 'pagina/content_footer' %>

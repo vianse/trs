@@ -1,0 +1,49 @@
+
+<h4>Comenzar <strong> Periodo: 01 al <%= l(Date.current.end_of_month, :format => :ultimodia) %></strong> </h4>
+
+<%= form_tag({controller: "actividades", action: "abrir_periodo"}, method: "post") do %>
+
+    <%= hidden_field_tag :horaRemoto, nil,:value => 0,:class => "form-control tamanoPeque", :placeholder => 0 %>
+    <%= hidden_field_tag :HorasExtra, nil, :value => 0,:class => "form-control tamanoPeque", :placeholder => 0 %>
+      <div class="field">
+       <%= hidden_field_tag :actividad, nil, :value => nil ,:class => "form-control tamanoActividades" %>
+      </div>
+      <div class="field">
+       <%= hidden_field_tag :id_consultora, nil,:value =>  params[:proyecto] ,:class => "form-control tamano" %>
+      </div>
+         <div class="field">
+          <%= hidden_field_tag :id_consultor, nil, :value =>  current_user.id ,:class => "form-control tamano" %>
+        </div>
+        <div class="field">
+          <%= hidden_field_tag :diaActual, nil, :value => l(Date.current,:format => :default),:class => "form-control tamano" %>
+        </div>
+        <div class="field">
+          <%= hidden_field_tag :horaEntrada, nil,:value=> @asignacion.horaInicio,:class => "form-control tamano" %>
+        </div>
+        <div class="field">
+          <%= hidden_field_tag :horaSalida, nil,:value=> @asignacion.horaFin,:class => "form-control tamano" %>
+        </div>
+
+        <div class="field">
+          <%= hidden_field_tag :diaLetra, nil,:value=> l(Date.current,:format => :dia),:class => "form-control tamano" %>
+          <%= hidden_field_tag :mes, nil,:value=>  Date.current.strftime("%m") %>
+          <%= hidden_field_tag :año, nil,:value=> Date.current.strftime("%Y") %>
+        </div>
+        <div class="field">
+          <%= hidden_field_tag :horasTrabajadas, nil, :value => 8 %>
+        </div>
+        <div class="field">
+          <%= hidden_field_tag :dias, nil,:value => 1 %>
+        </div>
+        <div class="field">
+          <%= hidden_field_tag :medioDia, nil,  :value => 0 %>
+        </div>
+        <div class="panel panel-default">
+        <div class="panel-body">
+          <%= submit_tag("Iniciar Periodo" ,:class => "btn btn-info btn-cons color")  %>
+        </div>
+      </div>
+
+  <% end %>
+
+

@@ -1,0 +1,41 @@
+<%= form_for(@asignacione) do |f| %>
+  <% if @asignacione.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@asignacione.errors.count, "error") %> prohibited this asignacione from being saved:</h2>
+
+      <ul>
+      <% @asignacione.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :id_consultora %><br>
+    <%= f.text_field :id_consultora %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :cliente %><br>
+    <%= f.text_field :cliente %>
+  </div>
+  <div class="field">
+    <%= f.label :proyecto %><br>
+    <%= f.text_field :proyecto %>
+  </div>
+  <div class="field">
+    <%= f.label :horaInicio %><br>
+    <%= f.text_field :horaInicio %>
+  </div>
+  <div class="field">
+    <%= f.label :horaFin %><br>
+    <%= f.text_field :horaFin %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

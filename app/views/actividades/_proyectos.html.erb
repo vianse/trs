@@ -1,0 +1,9 @@
+  <ul class="list-group">
+<% @asignaciones.each do |a| %>
+      <li class="list-group-item">
+      	 <a href="/actividades?proyecto=<%=a.id%>">
+     	 <%= a.cliente %> 
+         </a>
+      </li>
+<% end %>   
+</ul>

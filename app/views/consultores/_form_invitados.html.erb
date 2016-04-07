@@ -1,0 +1,50 @@
+<%= render 'pagina/style' %>
+<%= render 'pagina/menuE_left' %>
+<%= render 'pagina/content_head' %>
+<h1>Alta de Invitados</h1>
+<hr>
+
+ <%= form_tag controller: "consultores", action:  "acceso", method: "post" do %>
+  <div class="field">
+    <%= label_tag 'Paso 1: Ingresa el correo electronico del invitado' %><br />
+    <%= text_field_tag :correo, nil, :class => "form-control tamano", :placeholder => "example@vianse.mx", :required => true %>
+    <%= submit_tag "Aceptar" , :class => "btn btn-success btn-cons" %><br>
+    <% end %>
+    <% if @leyenda === "N" %>
+    <%= render 'form_enviar_email' %>
+    <% end %>
+    <% if @leyenda === "U" %>
+    <%= render 'form_invitados_existentes' %>
+    <% end %>
+    <% if @leyenda === "C" %>
+    <%= render 'form_invitados_existentes' %>
+    <% end %>
+  </div>
+
+  <h1>Acceso a invitados</h1>
+  <hr>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Usuario invitado</th>
+      <th>Acceso a ver las actividades de</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @invitados.each do |invitado| %>
+      <tr>
+        <td><%= invitado.emailInvitado %></td>
+        <td><%= invitado.emailConsultor %></td>
+        <td><%= link_to 'Quitar', invitado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+  

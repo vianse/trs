@@ -1,0 +1,31 @@
+<h1>Listing invitados</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id consultora</th>
+      <th>Emailinvitado</th>
+      <th>Emailconsultor</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @invitados.each do |invitado| %>
+      <tr>
+        <td><%= invitado.id_consultora %></td>
+        <td><%= invitado.emailInvitado %></td>
+        <td><%= invitado.emailConsultor %></td>
+        <td><%= link_to 'Show', invitado %></td>
+        <td><%= link_to 'Edit', edit_invitado_path(invitado) %></td>
+        <td><%= link_to 'Destroy', invitado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Invitado', new_invitado_path %>

@@ -1,0 +1,58 @@
+<%= form_for(@actividade) do |f| %>
+  <% if @actividade.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@actividade.errors.count, "error") %> prohibited this actividade from being saved:</h2>
+
+      <ul>
+      <% @actividade.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :diaActual %><br>
+    <%= f.text_field :diaActual %>
+  </div>
+  <div class="field">
+    <%= f.label :horaEntrada %><br>
+    <%= f.text_field :horaEntrada %>
+  </div>
+  <div class="field">
+    <%= f.label :horaSalida %><br>
+    <%= f.text_field :horaSalida %>
+  </div>
+  <div class="field">
+    <%= f.label :actividad %><br>
+    <%= f.text_field :actividad %>
+  </div>
+  <div class="field">
+    <%= f.label :diaLetra %><br>
+    <%= f.text_field :diaLetra %>
+  </div>
+  <div class="field">
+    <%= f.label :horasTrabajadas %><br>
+    <%= f.text_field :horasTrabajadas %>
+  </div>
+  <div class="field">
+    <%= f.label :dias %><br>
+    <%= f.text_field :dias %>
+  </div>
+  <div class="field">
+    <%= f.label :medioDia %><br>
+    <%= f.text_field :medioDia %>
+  </div>
+  <div class="field">
+    <%= f.label :HorasExtra %><br>
+    <%= f.text_field :HorasExtra %>
+  </div>
+  <div class="field">
+    <%= f.label :horaRemoto %><br>
+    <%= f.text_field :horaRemoto %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+

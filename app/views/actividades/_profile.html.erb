@@ -1,0 +1,38 @@
+
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+<div class="em-background-box text-white content">
+  <div class="container-fluid">
+    <div class="text-center em-background-box-content">
+      <ul class="list-inline">
+        <div class="row">
+          <div class="col-md-4">
+             <li>
+              <img class="left" src=<%= @consultora.logo %>>
+                <h1 class="thin"><%= @consultora.nombre %></h1>
+                <h4>
+                 <i class="fa fa-map-marker"></i>
+                 <span class="thin">México, D.F.</span>
+                </h4>       
+
+                  <li class="text-center">
+                    <h5 class="base-header">Consultores</h5>
+                    <h4 class="base-header major"><%= @consultores %></h4>
+                  </li>
+              
+             </li>
+          </div>
+          <div class="col-md-4 text-left">
+                  <strong>Cliente:  <%= @asignacion.cliente %></strong><br>
+                  <strong>Proveedor: <%= @consultora.nombre %></strong><br>
+                  <strong>Proyecto: <%= @asignacion.proyecto %></strong><br>
+                  <strong>Consultor: <%= @email.nombre %></strong><br>
+                 <strong> Periodo: 01 al <%= l(Date.current.end_of_month, :format => :ultimodia) %></strong>
+          </div>
+          <div class="col-md-4">
+                  <h1>Estado - Abierto </h1>
+          </div>
+       </div>   
+      </ul>
+    </div>
+  </div>
+</div>                    

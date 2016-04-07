@@ -1,0 +1,35 @@
+<%= render 'pagina/style' %>
+<%= render 'pagina/menuE_left' %>
+<%= render 'pagina/content_head' %>
+<h1>Mis Clientes</h1>
+<h5>Número de Clientes <strong> <%= @customers.count %></strong></h5>
+
+<%= link_to 'Nuevo Cliente', nuevo_path, :class => "btn btn-warning btn-cons color" %>
+<table class="table table-striped">
+<thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Razón Social</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customers.each do |customer| %>
+      <tr>
+        <td><strong><%= customer.nombre %></strong></td>
+        <td><%= customer.razonSocial %></td>
+        <td><%= link_to 'Editar', editar_path(customer) %></td>
+        <td><%= link_to 'Eliminar', customer, method: :delete, data: { confirm: 'Are you sure?' } %>
+         
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= render 'pagina/content_footer' %>

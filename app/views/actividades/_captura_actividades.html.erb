@@ -1,0 +1,107 @@
+<%= form_for(@actividade) do |f| %>
+  <% if @actividade.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@actividade.errors.count, "error") %> prohibited this actividade from being saved:</h2>
+
+      <ul>
+      <% @actividade.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+ <div class="container-fluid">
+      <div class="row">
+            <div class="col-xs-12 text-center" >
+              <h3>Captura tu actividad!!</h3>
+            </div>          
+        </div>
+        <div class="row">
+            <div class="col-xs-1" >
+            </div>
+            <div class="col-xs-10 pull-left">
+              <%= f.text_field :actividad,:class => "form-control tamanoActividades" %>
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <div class="LHE">
+                  <%= f.label "Horas extras?" %><br>
+                  <%= f.text_field :HorasExtra, :value => 0,:class => "form-control tamanoPeque", :placeholder => 0 %>
+                </div>
+                <div class="LHE">
+                  <%= f.label "Horas remoto?" %><br>
+                  <%= f.text_field :horaRemoto, :value => 0,:class => "form-control tamanoPeque", :placeholder => 0 %>
+                </div>
+                <%= f.submit "Guardar", :class => "btn btn-primary pull-right", :id => "guardar" %>
+                </div>
+              </div>  
+            </div>  
+            <div class="col-xs-1">
+            
+            </div>           
+        </div>
+    </div>
+ 
+  </div>
+</div>
+
+  
+    <% @actividades.each do |actividade| %>
+        <div class="panel panel-default">
+          <div class="panel-body">
+           <span class="glyphicon glyphicon-calendar"><strong>Día_actual: </strong></span>
+           <span><%= actividade.diaActual %></span>  
+           <span class="LHR"><strong><%= actividade.diaLetra %></strong></span><br>
+           <span><strong>Hora Entrada: </strong></span><span><%= actividade.horaEntrada %></span>
+           <span><strong>Hora Salida: </strong></span><span><%= actividade.horaSalida %></span> <span><strong>Horas trabajadas: </strong></span><span><%= actividade.horasTrabajadas %></span><br><br>
+           <span><strong>Actividad Realizada: </strong></span><span><%= actividade.actividad %></span><br><br>
+           <span><strong>Días trabajados: </strong></span><span><%= actividade.dias %></span>
+           <span><strong>Medio día: </strong></span><span><%= actividade.medioDia %></span> <span><strong>Horas extras: </strong></span><span><%= actividade.HorasExtra %></span>   <span><strong>Horas remoto: </strong></span><span><%= actividade.horaRemoto %></span><br>
+           
+         </div>
+      </div>
+    <% end %>
+  
+
+
+
+    
+ 
+
+  
+
+ <div class="field">
+    <%= f.hidden_field :id_consultora, :value =>  params[:proyecto] ,:class => "form-control tamano" %>
+  </div>
+   <div class="field">
+    <%= f.hidden_field :id_consultor, :value =>  current_user.id ,:class => "form-control tamano" %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :diaActual, :value => l(Date.current,:format => :default),:class => "form-control tamano" %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :horaEntrada, :value=> @asignacion.horaInicio,:class => "form-control tamano" %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :horaSalida, :value=> @asignacion.horaFin,:class => "form-control tamano" %>
+  </div>
+
+  <div class="field">
+    <%= f.hidden_field :diaLetra, :value=> l(Date.current,:format => :dia),:class => "form-control tamano" %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :horasTrabajadas, :value => 8 %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :dias, :value => 1 %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :medioDia, :value => 0 %>
+  </div>
+
+
+   
+
+<% end %>

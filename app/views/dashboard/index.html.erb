@@ -1,0 +1,42 @@
+
+<% if consultora_signed_in? %>
+
+<%= render 'pagina/style' %>
+<%= render 'pagina/menuE_left' %>
+<%= render 'pagina/content_head' %>
+<h1> Indicadores </h1>
+<%= render 'indicadores' %>
+<%= render 'pagina/content_footer' %>
+<% else %>
+<% if user_signed_in? %>
+<%= render 'pagina/menu_consultores' %>
+<%= render 'pagina/content_head' %>
+<h1> Mis Actividades</h1>
+<%= render 'pagina/content_footer' %>
+<%= render 'pagina/style' %>
+<% else %>
+<%= render 'pagina/cover' %>
+<% end %>
+
+<% end %>
+
+
+
+
+<% if user_signed_in? %>
+  Logged in as <strong><%= current_user.email %></strong>.
+  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+<% else %>
+  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+  <%= link_to "Entrar como consultor", new_user_session_path, :class => 'navbar-link'  %>
+<% end %>
+
+<% if consultora_signed_in? %>
+  Logged in as <strong><%= current_consultora.email %></strong>.
+  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "Logout", destroy_consultora_session_path, method: :delete, :class => 'navbar-link'  %>
+<% else %>
+ |
+  <%= link_to "Entrar como empresa", new_consultora_session_path, :class => 'navbar-link'  %>
+<% end %>

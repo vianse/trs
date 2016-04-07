@@ -1,0 +1,44 @@
+<h1>Listing fechas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Mes</th>
+      <th>Dia</th>
+      <th>Dial</th>
+      <th>Mesl</th>
+      <th>Año</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fechas.each do |fecha| %>
+      <tr>
+        <td><%= fecha.fecha %></td>
+        <td><%= fecha.mes %></td>
+        <td><%= fecha.dia %></td>
+        <td><%= fecha.diaL %></td>
+        <td><%= fecha.mesL %></td>
+        <td><%= fecha.año %></td>
+        <td><%= link_to 'Show', fecha %></td>
+        <td><%= link_to 'Edit', edit_fecha_path(fecha) %></td>
+        <td><%= link_to 'Destroy', fecha, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Fecha', new_fecha_path %>
+
+<h3>Import a CSV File</h3>
+  <%= form_tag import_fechas_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "Import CSV" %>
+  <% end %>
+</div>
