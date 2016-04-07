@@ -69,9 +69,9 @@ ActiveRecord::Schema.define(version: 20150324234448) do
     t.string   "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "access"
-    t.boolean  "multiproyecto"
-    t.boolean  "multiempresa"
+    t.string  "access"
+    t.string  "multiproyecto"
+    t.string  "multiempresa"
     t.string   "horaEntrada"
     t.string   "horaSalida"
   end
@@ -149,7 +149,7 @@ ActiveRecord::Schema.define(version: 20150324234448) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "invitado"
+    t.string  "invitado"
     t.string   "email_consultor"
     t.string   "email_consultora"
   end
