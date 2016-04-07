@@ -5,11 +5,7 @@ Rpt::Application.routes.draw do
     collection { post :import }
   end
 
-  get "errors/sub_layout"
-  get "errors/erro_404"
-  get "errors/error_422"
-  get "errors/error_500"
-  get "errors/error_505"
+  
   resources :asignaciones
 
   resources :actividades
@@ -44,11 +40,6 @@ Rpt::Application.routes.draw do
   post '/enviar_email', :to =>  'consultores#enviar_email'
 
   
-#errores
-  get "/404", :to => "errors#error_404", via: :all
-  get "/422", :to => "errors#error_422", via: :all
-  get "/500", :to => "errors#error_500", via: :all
-  get "/505", :to => "errors#error_505", via: :all
 
 
   devise_for :users, :controllers => {registrations: 'registrations'}
