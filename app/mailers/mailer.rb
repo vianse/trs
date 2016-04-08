@@ -12,7 +12,7 @@ class Mailer < ActionMailer::Base
   :subject => "No tardes más!! registrate ahora y no te pierdas de las actividades de tus consultores" ,
   :html => "Estimado <strong>" + user + "</strong>, la consultora <strong>" + consultora.nombre +
   "</strong> te ha enviado esta invitación para que te registres y puedas ver las actividades de sus recursos. " +
-  "Para registrarse solo da click en la siguiente liga " + "<a href=" + "http://localhost:3000/users/sign_up?email=" + user + ">Registrar</a>"
+  "Para registrarse solo da click en la siguiente liga " + "<a href=" + "https://trsreporte.herokuapp.com/users/sign_up?email=" + user + ">Registrar</a>"
   end
   end
 
