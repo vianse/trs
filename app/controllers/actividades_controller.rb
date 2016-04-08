@@ -46,7 +46,7 @@ class ActividadesController < ApplicationController
     #logger.debug @fecha[0].to_s
     @dias = Actividade.where(:mes => Date.current.strftime("%m") , :ano => Date.current.strftime("%Y"), :id_consultor => current_user.id,:id_consultora => params[:proyecto], :dias => "1").count
     @conteo = Actividade.where(:mes => Date.current.strftime("%m") , :ano => Date.current.strftime("%Y"), :id_consultor => current_user.id,:id_consultora => params[:proyecto]).count
-    @periodos = Fecha.select(:mesL).map(&:mesL).uniq
+    @periodos = Fecha.select(:mesl).map(&:mesl).uniq
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
     @id_consultora = Consultore.find_by(:email => current_user.email)
     @consultora= Profile.find_by(:user_id => @id_consultora.user_id)

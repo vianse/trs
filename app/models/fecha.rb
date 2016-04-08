@@ -17,7 +17,7 @@ scope :MesActual ,-> (asignacion, id_consultor) {where("mes = ? and año = ?", a
       @mesl = row[4]
       @ano = row[5]
       
-      Fecha.create!(:fecha => @fecha,:mes => @mes, :dia => @dia, :diaL => @diaL, :mesL => @mesl,:año => @ano)
+      Fecha.create!(:fecha => @fecha,:mes => @mes, :dia => @dia, :diaL => @diaL, :mesl => @mesl,:año => @ano)
 
     end # end CSV.foreach
   end # end sel

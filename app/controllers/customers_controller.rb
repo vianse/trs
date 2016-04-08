@@ -7,7 +7,7 @@ class CustomersController < ApplicationController
     #@customers = Customer.all
     if consultora_signed_in?
        @customers = Customer.list_clientes(current_consultora.id)
-    respond_with(@customers)
+       respond_with(@customers)
      else 
     redirect_to :controller => 'main' , :action => 'index'
   end
